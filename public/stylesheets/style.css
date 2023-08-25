@@ -7,6 +7,7 @@
 body {
   /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(237, 236, 236);
 }
 
 a {
@@ -39,110 +40,78 @@ a {
   margin-left: 55%;
 }
 
-/* public/style.css */
-
-/* Style for the movies list */
-.movies {
-  list-style: none;
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 40px auto;
+  width: 80%;
+  gap: 10px;
+}
+.grid-item {
+  padding: 20px;
+  /* text-align: center; */
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.text {
+  padding: 40px;
+}
+.movies-page-title {
+  font-size: 4em;
+  padding-bottom: 15px;
+}
+.movies-page-text {
+  font-size: 22px;
+  color: rgb(93, 91, 91);
 }
 
-/* Style for each movie item */
-.movies-item {
-  width: calc(33.33% - 20px);
-  padding: 20px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  margin-bottom: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.movies-item:hover {
-  transform: scale(1.02);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Style for movie title */
-.movies-item h2 {
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-/* Style for movie image */
-.movies-item img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 10px;
-}
-
-/* Style for "See more" link */
-.movies-item a {
-  display: block;
-  margin-top: 10px;
-  color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.movies-item a:hover {
-  color: #ff6600;
-  text-decoration: underline;
-}
-
-/* Style for the movie details section */
 .movie-detail {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-  background-color: #ffffff;
+  padding: 16px;
+  width: 60%;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: row;
+  border-radius: 8px;
+
+  border: solid 2px rgb(185, 182, 182);
+  box-shadow: 2px 5px 8px;
+}
+.info {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+}
+.stars {
+  list-style: none;
+}
+.time {
+  color: #00b7ff;
+  display: flex;
+  flex-direction: row;
+  /* flex-direction: row; */
 }
 
-/* Style for movie title in movie details */
-.movie-detail h1 {
-  font-size: 1.8rem;
-  margin: 0;
-  color: #333333;
+.movie-desc {
+  font-size: 16px;
 }
 
-/* Style for movie image in movie details */
-.movie-detail img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 20px;
-}
-
-/* Style for movie description in movie details */
-.movie-detail p {
-  margin-top: 20px;
-  line-height: 1.5;
-  color: #666666;
-}
-
-/* Style for showtimes in movie details */
-.movie-detail h2 {
-  font-size: 1.2rem;
-  margin-top: 20px;
-  color: #007bff;
-}
 .back {
-  background-color: #007BFF;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
+  padding-top: 20px;
+  padding-left: 30px;
+  font-size: 22px;
 }
-.showtime-label {
-  color: blue;
+.movie-covers {
+  width: 18em;
+  height: 24em;
+  display: flex;
+  justify-self: center;
+  align-self: center;
 }
-.showtime-value {
-  color: black;
+.seemore {
+  text-align: center;
 }

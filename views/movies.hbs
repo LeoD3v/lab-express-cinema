@@ -1,10 +1,15 @@
-<h1>Movies</h1>
-    <ul class="movies">
-        {{#each movies}}
-            <li class="movies-item">
-                <h2>{{this.title}}</h2>
-                <img src="{{this.image}}" alt="{{this.title}} Image">
-                <a href="/movies/{{this._id}}">See more</a>
-            </li>
-        {{/each}}
+<div class="text">
+  <h1 class="movies-page-title">Ironhack Cinema</h1>
+  <p class="movies-page-text">Click on the movie to check the showtimes!</p>
+</div>
+<div class="movies-grid">
+
+  {{#each movies}}
+
+    <ul class="grid-item"><img class="movie-covers" src="{{this.image}}" /><h3
+      >{{title}}</h3>
+      <a class="seemore" href="/movies/{{_id}}">See more</a>
+
     </ul>
+  {{/each}}
+</div>

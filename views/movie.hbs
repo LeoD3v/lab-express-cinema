@@ -1,7 +1,30 @@
-<a class="back" href="/movies">Go back</a>
-<div class="movie-detail">
-  <h1>{{title}}</h1>
-  <img src="{{image}}" />
-  <p>{{description}}</p>
+<div class="back">
 
-<h2><span class="showtime-label">Showtimes:</span> <span class="showtime-value">{{showtimes}}</span></h2></div>
+  <a href="/movies">Back</a>
+</div>
+<div class="movie-detail">
+  <div>
+
+    <img src="{{image}}" />
+  </div>
+  <div class="info">
+
+    <h1>{{title}}</h1>
+    <h3>Stars</h3>
+    <div>
+      {{#each stars}}
+
+        <ul class="stars">
+          <li>{{this}}</li>
+        </ul>
+      {{/each}}
+    </div>
+    <p class="movie-desc">{{description}}</p>
+    <div class="time">
+
+      {{#each showtimes}}
+        <h4>|{{this}}|</h4>
+      {{/each}}
+    </div>
+  </div>
+</div>
