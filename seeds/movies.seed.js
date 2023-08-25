@@ -1,9 +1,6 @@
-// ℹ️ package responsible to make the connection with mongodb
-// https://www.npmjs.com/package/mongoose
+// To insert in "seeds/movies.seed.js"
 const mongoose = require("mongoose");
-
-// ℹ️ Sets the MongoDB URI for our app to have access to it.
-// If no env has been set, we dynamically set it to whatever the folder name was upon the creation of the app
+const Movie = require("./../models/Movie.model");
 
 const MONGO_URI =
   process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/lab-express-cinema";
@@ -89,13 +86,27 @@ const movies = [
     showtimes: ["13:00", "15:30", "18:00", "20:10", "22:40"],
   },
 ];
+
+// Add here the script that will be run to actually seed the database (feel free to refer to the previous lesson)
+
+// ... your code here
+
+console.log("CONNECTING TO THE DATABASE!!!!!!!");
 mongoose
   .connect(MONGO_URI)
   .then((x) => {
-    console.log(
-      `Connected to Mongo! Database name: "${x.connections[0].name}"`
-    );
+    console.log(`"Connected to Mongo Database:"${x.connections[0].name}"`);
+
+    return Movie.insertMany(movies);
+  })
+  .then((moviesDB) => {
+    console.log(`Created ${moviesDB.length} movies`);
+
+    return mongoose.connection.close();
+  })
+  .then(() => {
+    console.log("DB connection close!");
   })
   .catch((err) => {
-    console.error("Error connecting to mongo: ", err);
+    console.log(`An error occurred while creating movies from the DB: ${err}`);
   });
